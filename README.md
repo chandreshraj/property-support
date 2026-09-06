@@ -12,14 +12,14 @@ A small property-maintenance request app. Residents upload an issue photo, Ollam
 
    ```env
    OLLAMA_BASE_URL=http://localhost:11434
-   OLLAMA_MODEL=gemma4:12b
+   OLLAMA_MODEL=your_vision_model
    OLLAMA_API_KEY=your_ollama_api_key
    ```
 
    The app sends this value as a bearer token in every request to Ollama. For a local Ollama instance, pull a vision-capable model first:
 
    ```bash
-   ollama pull gemma4:12b
+   ollama pull your_vision_model
    ```
 
 2. Install and start the app:
@@ -38,7 +38,7 @@ For a production-style local run, use `npm run build` followed by `npm start`.
 | Variable | Description |
 | --- | --- |
 | `OLLAMA_BASE_URL` | Ollama server URL, defaulting to `http://localhost:11434`. |
-| `OLLAMA_MODEL` | A vision-capable model, e.g. `gemma4:12b`. |
+| `OLLAMA_MODEL` | The name of a vision-capable Ollama model available on your endpoint. |
 | `OLLAMA_API_KEY` | Ollama API key sent as a bearer token with each image-analysis request. |
 | `PORT` | App port, defaulting to `3000`. |
 
