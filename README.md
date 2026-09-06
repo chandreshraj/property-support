@@ -2,6 +2,10 @@
 
 A small property-maintenance request app. Residents upload an issue photo, Ollama classifies the problem, and the app chooses a matching vendor. Requests are saved locally and appear in the ticket history.
 
+## Preview
+
+![Property Support request created screen](docs/images/request-created.png)
+
 ## Run it
 
 1. Copy `.env.example` to `.env` and configure Ollama, including your API key:
