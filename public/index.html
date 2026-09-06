@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Property Support</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#submit"><span class="brand-mark">PS</span><span>Property Support</span></a>
+        <nav><a class="active" href="#submit">New request</a><a href="#history">Ticket history</a></nav>
+        <div class="help-dot">?</div>
+      </header>
+
+      <section id="submit" class="new-request section active-section">
+        <div class="intro"><p class="eyebrow">MAINTENANCE REQUEST</p><h1>What needs<br /><em>attention?</em></h1><p class="lede">Share a photo and a few details. We’ll identify the issue and get the right person on it.</p></div>
+        <form id="ticket-form" class="request-card">
+          <div class="form-header"><div><span class="step-number">01</span><h2>Show us the issue</h2></div><p>JPG, PNG or WEBP · up to 8 MB</p></div>
+          <label id="upload-zone" class="upload-zone" for="image-input">
+            <input id="image-input" name="image" accept="image/png,image/jpeg,image/webp" type="file" required />
+            <div id="upload-prompt"><span class="upload-icon">↑</span><strong>Drop your photo here</strong><span>or browse files</span></div>
+            <img id="preview" alt="Selected issue" />
+          </label>
+          <div class="field-grid">
+            <label>Property or unit<input name="location" placeholder="e.g. 14 Linden Court, Apt 3B" required /></label>
+            <label>Your name<input name="residentName" placeholder="e.g. Maya Patel" required /></label>
+          </div>
+          <label class="wide-field">A little more detail <span>optional</span><textarea name="description" placeholder="What happened? When did you first notice it?"></textarea></label>
+          <button id="submit-button" type="submit">Analyze & create request <span>→</span></button>
+          <p class="privacy-note">Your photo is used only to assess this maintenance request.</p>
+        </form>
+      </section>
+
+      <section id="history" class="history section">
+        <div class="history-heading"><div><p class="eyebrow">ALL REQUESTS</p><h1>Ticket <em>history</em></h1></div><button id="new-ticket" class="secondary-button">+ New request</button></div>
+        <div id="ticket-list" class="ticket-list"><div class="empty-state">Loading tickets…</div></div>
+      </section>
+    </main>
+    <div id="result-modal" class="modal hidden" role="dialog" aria-modal="true"><div class="modal-card"><button id="close-modal" class="close-button">×</button><div class="success-icon">✓</div><p class="eyebrow">REQUEST CREATED</p><h2>We found the<br /><em>right match.</em></h2><div id="analysis-result"></div><button id="view-history" class="result-button">View ticket history <span>→</span></button></div></div>
+    <div id="image-modal" class="modal hidden" role="dialog" aria-modal="true" aria-label="Ticket photo"><div class="image-modal-card"><button id="close-image-modal" class="close-button">×</button><img id="full-image" alt="Maintenance issue" /><p id="image-caption"></p></div></div>
+    <script src="/app.js"></script>
+  </body>
+</html>

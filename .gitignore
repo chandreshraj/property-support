@@ -1,0 +1,12 @@
+# Dependencies and generated build output
+node_modules/
+dist/
+
+# Local Ollama credentials and environment-specific configuration
+.env
+.env.*
+!.env.example
+
+# Locally stored maintenance data and submitted photos
+data/tickets.json
+data/uploads/
