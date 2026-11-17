@@ -49,8 +49,8 @@ form.addEventListener('submit', async event => {
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || 'Could not create this ticket.');
     const ticket = data.ticket;
-    const sourceNote = data.analysisSource === 'fallback' ? '<p class="model-note">Ollama is unavailable, so we used the details you provided to choose a vendor.</p>' : '';
-    result.innerHTML = `<div class="analysis-box"><p class="category-tag">${ticket.category}</p><h3>${ticket.diagnosis}</h3><div class="vendor-row"><span class="vendor-initials">${ticket.vendor.initials}</span><div><strong>${ticket.vendor.name}</strong><span>${ticket.vendor.specialty}</span></div><span class="urgency ${ticket.urgency.toLowerCase()}">${ticket.urgency} priority</span></div></div>${sourceNote}`;
+    const sourceNote = data.analysisSource === 'fallback' ? '<p class="model-note">We used the details you provided to choose a vendor.</p>' : '';
+    result.innerHTML = `<div class="analysis-box"><p class="category-tag">${ticket.category}</p><h3>${escapeHtml(ticket.diagnosis)}</h3><div class="vendor-row"><span class="vendor-initials">${ticket.vendor.initials}</span><div><strong>${ticket.vendor.name}</strong><span>${ticket.vendor.specialty}</span></div><span class="urgency ${ticket.urgency.toLowerCase()}">${ticket.urgency} priority</span></div></div>${sourceNote}`;
     modal.classList.remove('hidden');
     form.reset(); preview.classList.remove('visible'); uploadPrompt.classList.remove('hidden'); uploadZone.classList.remove('has-file');
   } catch (error) { alert(error.message); }
